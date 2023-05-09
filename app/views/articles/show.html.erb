@@ -1,6 +1,7 @@
+<%= render 'articles/navbar'%>
+<div class='d-flex'>
 <h1> <%= @article.title %> </h1>
+<p class='m-1 s-3'><%= link_to ('<i class="fa-solid fa-pencil"></i>').html_safe, edit_article_path %></p>
+<p class='m-1'><%= link_to ('<i class="fa-solid fa-trash-can"></i>').html_safe, article_path(@article), data: { turbo_method: :delete, turbo_confirm: "Delete #{@article.title}?"}%></p>
+</div>
 <p> <%= @article.content %> </p>
-<%= link_to 'Edit', edit_article_path %>
-<%= link_to 'Delete', article_path(@article), data: { turbo_method: :delete, turbo_confirm: "Delete #{@article.title}?"}%>
-<%= link_to 'New Article', new_article_path %>
-<%= link_to 'Back to Articles', articles_path %>
